@@ -1,0 +1,111 @@
+<div class="container" id="content" #content>
+  <div class="pt-5">
+    <h1>{{ data[0].mSociete }}</h1>
+    <h2>MF:{{ data[0].mMatricule }}</h2>
+    <h2>{{ data[0].mNumero }}</h2>
+    <p>{{ data[0].mEmail }}</p>
+    <p>{{ data[0].mAdress }}</p>
+  </div>
+
+  <div class="row pt-2">
+    <div class="col">
+      <h3>DE</h3>
+      <hr />
+      <div>
+        <p>{{ data[0].mSociete }}</p>
+      </div>
+      <div>
+        <h2>Relevé d'identité bancaire (RIB):</h2>
+        <p>{{ data[0].mReleve }}</p>
+      </div>
+      <div>
+        <h2>Matricule Fiscal:</h2>
+        <p>{{ data[0].mMatricule }}</p>
+      </div>
+    </div>
+    <div class="col">
+      <h3>A</h3>
+      <hr />
+      <div>
+        <p>{{ data[0].cNom }}</p>
+      </div>
+      <div>
+        <p>{{ data[0].cEmail }}</p>
+      </div>
+      <div>
+        <p>{{ data[0].cNumero }}</p>
+      </div>
+      <div>
+        <h2>Matricule Fiscal:</h2>
+        <p>{{ data[0].cMatricule }}</p>
+      </div>
+      <div>
+        <h2>Adresse</h2>
+        <p>{{ data[0].cAdress }}</p>
+      </div>
+    </div>
+    <div class="col mt-3">
+      <div class="d-flex flex-row bd-highlight mb-3 pt-4">
+        <div class="p-2 bd-highlight">
+          <div><h2>Numéro</h2></div>
+          <div><h2>date</h2></div>
+          <div><h2>D.d'échéance</h2></div>
+          <div><h2>D.livraison</h2></div>
+          <div><h2>Note</h2></div>
+        </div>
+        <div class="p-2 bd-highlight mt-2">
+          <div>
+            <p>FCT Nov. 2020</p>
+          </div>
+          <div>
+            <p>{{ data[0].aDate | date }}</p>
+          </div>
+          <div>
+            <p>{{ data[0].ADateE | date }}</p>
+          </div>
+          <div>
+            <p>{{ data[0].ADateL | date }}</p>
+          </div>
+          <div>
+            <p>{{ data[0].ANote }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">name</th>
+          <th scope="col">price</th>
+          <th scope="col">quantity</th>
+          <th scope="col">total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data[0].Items">
+          <th scope="row">{{ item.name }}</th>
+          <td>{{ item.price }}$</td>
+          <td>x{{ item.quantity }}</td>
+          <td>{{ item.price * item.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="d-flex flex-row bd-highlight mb-3 justify-content-between">
+      <div class="p-2 bd-highlight total">
+        <h2>total a payer: {{ total }}$</h2>
+      </div>
+      <div class="p-2 bd-highlight total2 text-center">
+        {{ data[0].mSociete }}
+      </div>
+    </div>
+  </div>
+</div>
+<input
+  type="button"
+  value="Download PDF"
+  class="btn btn-success pl-5 mt-2"
+  (click)="SavePDF()"
+/>

@@ -1,0 +1,52 @@
+<div>
+  <div class="form-group mt-3">
+    <div class="">
+      <label for="nom de la societe">Nom Complet</label>
+    </div>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        placeholder="Vote Nom"
+        [(ngModel)]="registerUserData.name"
+        name="name"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <div class="">
+      <label for="nom de la societe">E-Mail</label>
+    </div>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        placeholder="ex:Votrenom@hotmail.com"
+        [(ngModel)]="registerUserData.email"
+        name="email"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <div class="">
+      <label for="nom de la societe">Mot De Pass</label>
+    </div>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        placeholder="*********"
+        [(ngModel)]="registerUserData.password"
+        name="password"
+      />
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <button
+      type="button"
+      class="btn btn-outline-primary mt-5"
+      (click)="registerUser()"
+    >
+      S'insecrire
+    </button>
+  </div>
+</div>

@@ -1,0 +1,601 @@
+<h1 class="text-center mt-5">Modifier Facture n° FCT Nov. 2020 - 0002</h1>
+<mat-card class="container mt-5" id="contentToConvert">
+  <div class="row" style="font-size: 11px">
+    <!-- ----------------------SOCIETE ----------------------------->
+    <div class="col-sm">
+      <span>Votre société</span>
+
+      <div class="form-group" *ngIf="nomSociete">
+        <div class="d-flex justify-content-between">
+          <label for="nom de la societe">Nom de la société</label>
+          <button class="btn btn-light cacher" (click)="removeNomScoviete()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="ex:ACME Ltd."
+            [(ngModel)]="inputData.mSociete"
+            name="mSociete"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-group" *ngIf="email">
+        <div class="d-flex justify-content-between">
+          <label for="image">E Mail</label>
+          <button class="btn btn-light cacher" (click)="removeEmail()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="ex:acme@VOTREDOMAINE.com"
+            [(ngModel)]="inputData.mEmail"
+            name="mEmail"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-group" *ngIf="numero">
+        <div class="d-flex justify-content-between">
+          <label for="image">Numero de telephone</label>
+          <button class="btn btn-light cacher" (click)="removeNumero()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="ex: 73 123 456"
+            [(ngModel)]="inputData.mNumero"
+            name="mNumero"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-group" *ngIf="releve">
+        <div class="d-flex justify-content-between">
+          <label for="image">Relevé d'identité bancaire (RIB)</label>
+          <button class="btn btn-light cacher" (click)="removeReleve()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="..."
+            [(ngModel)]="inputData.mReleve"
+            name="mReleve"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-group" *ngIf="matricule">
+        <div class="d-flex justify-content-between">
+          <label for="image">Matricule Fiscal</label>
+          <button class="btn btn-light cacher" (click)="removeMatricule()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="..."
+            [(ngModel)]="inputData.mMatricule"
+            name="mMatricule"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-group" *ngIf="adresse">
+        <div class="d-flex justify-content-between">
+          <label for="image">Adresse</label>
+          <button class="btn btn-light cacher" (click)="removeAdresse()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="ex:acme@VOTREDOMAINE.com"
+            [(ngModel)]="inputData.mAdress"
+            name="mAdress"
+          />
+        </mat-form-field>
+      </div>
+      <div>
+        <button class="btn btn-light" (click)="open(modal1)">
+          Ajouter des champs
+        </button>
+      </div>
+    </div>
+    <!-- ----------------------CLIENT ----------------------------->
+
+    <div class="col-sm">
+      <span>Le client</span>
+      <div class="form-group pt-2" *ngIf="nomSocieteC">
+        <div class="d-flex justify-content-between">
+          <label for="nom de la societe">Nom de la société</label>
+          <button class="btn btn-light cacher" (click)="removenomSocieteC()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="ex:ACME Ltd."
+            [(ngModel)]="inputData.cNom"
+            name="cNom"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-group pt-2" *ngIf="contact">
+        <div class="d-flex justify-content-between">
+          <label for="nom de la societe">Nom de contact</label>
+          <button class="btn btn-light cacher" (click)="removecontact()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="ex:ACME Ltd."
+            [(ngModel)]="inputData.cContact"
+            name="cContact"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-group pt-2" *ngIf="emailC">
+        <div class="d-flex justify-content-between">
+          <label for="nom de la societe">E-Mail</label>
+          <button class="btn btn-light cacher" (click)="removeemailC()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="ex: acme@votredomaine.com"
+            [(ngModel)]="inputData.cEmail"
+            name="cEmail"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-group pt-2" *ngIf="numeroC">
+        <div class="d-flex justify-content-between">
+          <label for="nom de la societe">Numero de telephone</label>
+          <button class="btn btn-light cacher" (click)="removenumeroC()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="ex: 73 123 456"
+            [(ngModel)]="inputData.cNumero"
+            name="cNumero"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-group pt-2" *ngIf="rib">
+        <div class="d-flex justify-content-between">
+          <label for="nom de la societe">RIB</label>
+          <button class="btn btn-light cacher" (click)="removerib()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="..."
+            [(ngModel)]="inputData.cRib"
+            name="cRib"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-group pt-2" *ngIf="matriculeC">
+        <div class="d-flex justify-content-between">
+          <label for="nom de la societe">Matricule Fiscal</label>
+          <button class="btn btn-light cacher" (click)="removematricule()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="..."
+            [(ngModel)]="inputData.cMatricule"
+            name="cMatricule"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-group pt-2" *ngIf="adresseC">
+        <div class="d-flex justify-content-between">
+          <label for="nom de la societe">Adresse</label>
+          <button class="btn btn-light cacher" (click)="removeadresseC()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="..."
+            [(ngModel)]="inputData.cAdress"
+            name="cAdress"
+          />
+        </mat-form-field>
+      </div>
+      <div>
+        <button class="btn btn-light" (click)="open(modal2)">
+          Ajouter des champs
+        </button>
+      </div>
+      <!---------------------------- AUTRE information----------------------- -->
+      <hr class="mt-2" />
+      <span>Autre information</span>
+      <div class="form-group pt-2" *ngIf="numeroA">
+        <div class="d-flex justify-content-between">
+          <label for="nom de la societe">Numero</label>
+          <button class="btn btn-light cacher" (click)="removenumeroA()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="FCT Nov. 2020 - 0001"
+            [(ngModel)]="inputData.aNumero"
+            name="aNumero"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-group pt-2" *ngIf="date">
+        <div class="d-flex justify-content-between">
+          <label for="nom de la societe">Date</label>
+          <button class="btn btn-light cacher" (click)="removedate()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            [matDatepicker]="picker"
+            [(ngModel)]="inputData.aDate"
+            name="aDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="form-group pt-2" *ngIf="dateEchange">
+        <div class="d-flex justify-content-between">
+          <label for="nom de la societe">Date d'échéance</label>
+          <button class="btn btn-light cacher" (click)="removedateEchange()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            [matDatepicker]="picker2"
+            [(ngModel)]="inputData.ADateE"
+            name="ADateE"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="form-group pt-2" *ngIf="dateLivraison">
+        <div class="d-flex justify-content-between">
+          <label for="nom de la societe">Date de livraison</label>
+          <button class="btn btn-light cacher" (click)="removedateLivraison()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            [matDatepicker]="picker3"
+            [(ngModel)]="inputData.ADateL"
+            name="ADateL"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker3"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="form-group pt-2" *ngIf="note">
+        <div class="d-flex justify-content-between">
+          <label for="nom de la societe">Note</label>
+          <button class="btn btn-light cacher" (click)="removenote()">
+            cacher
+          </button>
+        </div>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="..."
+            [(ngModel)]="inputData.ANote"
+            name="ANote"
+          />
+        </mat-form-field>
+      </div>
+      <div>
+        <button class="btn btn-light" (click)="open(modal3)">
+          Ajouter des champs
+        </button>
+      </div>
+    </div>
+  </div>
+  <!----------------------------- items ----------------------------->
+  <div class="table-responsive pt-2">
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <td><strong>Item Name</strong></td>
+          <td class="text-center"><strong>Item Price</strong></td>
+          <td class="text-center"><strong>Item Quantity</strong></td>
+          <td class="text-right"><strong>Total</strong></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let input of items">
+          <td>
+            <input [(ngModel)]="input.name" matInput placeholder="item name" />
+          </td>
+          <td class="text-center">
+            <input [(ngModel)]="input.price" matInput placeholder="$900" />
+          </td>
+          <td class="text-center">
+            <input
+              [(ngModel)]="input.quantity"
+              matInput
+              placeholder="1"
+              type="number"
+            />
+          </td>
+          <td class="text-right">${{ input.quantity * input.price }}</td>
+        </tr>
+
+        <tr>
+          <td class="highrow">
+            <button (click)="addInput()" class="btn btn-light">add item</button>
+          </td>
+          <td class="highrow"></td>
+          <td class="highrow text-center"><strong>total</strong></td>
+          <td class="highrow text-right">${{ subtotal }}</td>
+        </tr>
+        <tr>
+          <td class="emptyrow">
+            <button (click)="calculate()" class="btn btn-light">
+              calculate
+            </button>
+          </td>
+          <td class="emptyrow"></td>
+          <td class="emptyrow text-center"></td>
+          <td class="emptyrow text-right"></td>
+        </tr>
+        <tr>
+          <td class="emptyrow">
+            <button class="btn btn-light" (click)="save()">
+              sauvegarder/pdf
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</mat-card>
+
+<!----------------------------- modal societe ----------------------------->
+
+<ng-template #modal1 let-modal class="modal">
+  <h3 class="p-3">Modifier la visibilité</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Visible?</th>
+        <th scope="col">Nom</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row text-center">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="nomSociete"
+          ></mat-checkbox>
+        </th>
+        <td>nom de la societe</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="email"
+          ></mat-checkbox>
+        </th>
+        <td>E-mail</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="numero"
+          ></mat-checkbox>
+        </th>
+        <td>Numero de telephone</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="releve"
+          ></mat-checkbox>
+        </th>
+        <td>Relevé d'identité bancaire (RIB)</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="matricule"
+          ></mat-checkbox>
+        </th>
+        <td>Matricule Fiscal</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="adresse"
+          ></mat-checkbox>
+        </th>
+        <td>Adresse</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<!----------------------------- modal client ----------------------------->
+
+<ng-template #modal2 let-modal class="modal">
+  <h3 class="p-3">Modifier la visibilité</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Visible?</th>
+        <th scope="col">Nom</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row text-center">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="nomSocieteC"
+          ></mat-checkbox>
+        </th>
+        <td>Nom de la société</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="contact"
+          ></mat-checkbox>
+        </th>
+        <td>Nom du contact</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="emailC"
+          ></mat-checkbox>
+        </th>
+        <td>E-Mail</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="numeroC"
+          ></mat-checkbox>
+        </th>
+        <td>Numéro de téléphone</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox class="example-margin" [(ngModel)]="rib"></mat-checkbox>
+        </th>
+        <td>RIB</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="matriculeC"
+          ></mat-checkbox>
+        </th>
+        <td>Matricule Fiscal</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="adresseC"
+          ></mat-checkbox>
+        </th>
+        <td>Adresse</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<!----------------------------- modal autre information ----------------------------->
+
+<ng-template #modal3 let-modal class="modal">
+  <h3 class="p-3">Modifier la visibilité</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Visible?</th>
+        <th scope="col">Nom</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row text-center">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="numeroA"
+          ></mat-checkbox>
+        </th>
+        <td>Numéro</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="date"
+          ></mat-checkbox>
+        </th>
+        <td>Date</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="dateEchange"
+          ></mat-checkbox>
+        </th>
+        <td>Date d'échéance</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="dateLivraison"
+          ></mat-checkbox>
+        </th>
+        <td>Date de livraison</td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="note"
+          ></mat-checkbox>
+        </th>
+        <td>Note</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>

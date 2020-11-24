@@ -1,0 +1,82 @@
+.Nav {
+  display: flex;
+  padding-top: 3rem;
+  justify-content: space-between;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h1 {
+  display: block;
+  font-size: 34px;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  color: #15215a;
+}
+p {
+  font-size: 24px;
+  color: #15215a;
+}
+.Nav .right {
+  display: flex;
+  align-items: center;
+}
+
+.Nav .right {
+  display: flex;
+  align-items: center;
+}
+.Nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.Nav ul a {
+  display: inline-block;
+  text-decoration: none;
+  color: #15215a;
+}
+.Nav .right a {
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  position: relative;
+}
+.Nav .left .logo {
+  display: flex;
+  align-items: center;
+}
+.Nav ul a {
+  display: inline-block;
+  text-decoration: none;
+  color: #15215a;
+}
+a {
+  color: #2339a6;
+  text-decoration: none;
+  background-color: transparent;
+}
+.Nav .left .logo .text {
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #2339a6;
+}
+.hero-image-wrapper img {
+  width: 80%;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(35, 57, 166, 0.5),
+    0 35px 40px rgba(35, 57, 166, 0.5);
+  margin-bottom: -3rem;
+}
+.Hero {
+  background: linear-gradient(90deg, #e6e6e6 0%, #fff 50%, #e8e8e8 100%);
+}
